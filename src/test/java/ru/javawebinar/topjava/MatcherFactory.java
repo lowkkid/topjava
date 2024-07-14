@@ -10,6 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Comparing actual and expected objects via AssertJ
  */
 public class MatcherFactory {
+
     public static <T> Matcher<T> usingIgnoringFieldsComparator(String... fieldsToIgnore) {
         return new Matcher<>(fieldsToIgnore);
     }
