@@ -14,13 +14,41 @@
         .excess {
             color: red;
         }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 15px;
+            gap: 15px
+        }
     </style>
 </head>
 <body>
 <section>
-    <h3><a href="index.html">Home</a></h3>
+    <h3><a href="index.jsp">Home</a></h3>
     <hr/>
     <h2>Meals</h2>
+    <form id="filter" method="get" action="meals">
+        <div class="row">
+            <div>
+                <label for="startDate">Start date (inclusive)</label>
+                <input id="startDate" type="date" name="startDate">
+            </div>
+            <div>
+                <label for="endDate">End date (inclusive)</label>
+                <input id="endDate" type="date" name="endDate">
+            </div>
+            <div>
+                <label for="startTime">Start time (inclusive)</label>
+                <input id="startTime" type="time" name="startTime">
+            </div>
+            <div>
+                <label for="endTime">End time (exclusive)</label>
+                <input id="endTime" type="time" name="endTime">
+            </div>
+            <button type="submit">Apply</button>
+        </div>
+    </form>
     <a href="meals?action=create">Add Meal</a>
     <br><br>
     <table border="1" cellpadding="8" cellspacing="0">
@@ -34,7 +62,7 @@
         </tr>
         </thead>
         <c:forEach items="${requestScope.meals}" var="meal">
-            <jsp:useBean id="meal" type="ru.javawebinar.topjava.model.MealTo"/>
+            <jsp:useBean id="meal" type="ru.javawebinar.topjava.to.MealTo"/>
             <tr class="${meal.excess ? 'excess' : 'normal'}">
                 <td>
                         <%--${meal.dateTime.toLocalDate()} ${meal.dateTime.toLocalTime()}--%>

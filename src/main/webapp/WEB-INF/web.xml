@@ -25,4 +25,8 @@
         <servlet-name>mealServlet</servlet-name>
         <url-pattern>/meals</url-pattern>
     </servlet-mapping>
+
+    <listener>
+        <listener-class>ru.javawebinar.topjava.web.ServletApplicationContext</listener-class>
+    </listener>
 </web-app>
